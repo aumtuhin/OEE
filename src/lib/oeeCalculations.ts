@@ -8,7 +8,6 @@ export function calculateOEE(
 ): OEEMetrics {
   // Aggregate data across all shifts
   const totalPlannedTime = shifts.reduce((sum, shift) => sum + shift.plannedProductionTime, 0);
-//   const totalTargetQuantity = shifts.reduce((sum, shift) => sum + shift.targetQuantity, 0);
   const totalActualQuantity = shifts.reduce((sum, shift) => sum + shift.actualQuantity, 0);
   const totalGoodQuantity = shifts.reduce((sum, shift) => sum + shift.goodQuantity, 0);
 
