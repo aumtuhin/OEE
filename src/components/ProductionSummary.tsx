@@ -25,13 +25,13 @@ export function ProductionSummary({ shifts, downtimeEvents }: ProductionSummaryP
       label: "Actual Quantity",
       value: totalActual.toLocaleString(),
       icon: Package,
-      color: "text-accent",
+      color: "text-blue-600",
     },
     {
       label: "Good Parts",
       value: totalGood.toLocaleString(),
       icon: CheckCircle,
-      color: "text-success",
+      color: "text-green-600",
     },
     {
       label: "Defects",
@@ -43,7 +43,7 @@ export function ProductionSummary({ shifts, downtimeEvents }: ProductionSummaryP
       label: "Total Downtime",
       value: `${totalDowntime} min`,
       icon: Clock,
-      color: "text-warning",
+      color: "text-yellow-600",
     },
   ];
 

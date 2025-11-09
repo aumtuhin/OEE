@@ -1,10 +1,6 @@
 import type { DowntimeEvent, OEEMetrics, ProductionLine, Shift } from "@/types/production";
 
 
-/**
- * Calculate OEE metrics for a shift or multiple shifts
- * OEE = Availability × Performance × Quality
- */
 export function calculateOEE(
   shifts: Shift[],
   downtimeEvents: DowntimeEvent[],

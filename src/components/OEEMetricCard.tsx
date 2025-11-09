@@ -23,11 +23,11 @@ export function OEEMetricCard({
   const getVariantStyles = () => {
     switch (variant) {
       case "success":
-        return "border-success/30 bg-success/5";
+        return "border-green-400 bg-green-600/5";
       case "warning":
-        return "border-warning/30 bg-warning/5";
+        return "border-yellow-400 bg-yellow-600/5";
       case "destructive":
-        return "border-destructive/30 bg-destructive/5";
+        return "border-red-400 bg-red-600/5";
       default:
         return "";
     }
@@ -36,11 +36,11 @@ export function OEEMetricCard({
   const getValueColor = () => {
     switch (variant) {
       case "success":
-        return "text-success";
+        return "text-green-600";
       case "warning":
-        return "text-warning";
+        return "text-yellow-600";
       case "destructive":
-        return "text-destructive";
+        return "text-red-600";
       default:
         return "text-foreground";
     }
@@ -71,15 +71,15 @@ export function OEEMetricCard({
             <div className="flex items-center gap-1 text-sm">
               {delta > 0 ? (
                 <>
-                  <ArrowUp className="h-4 w-4 text-success" />
-                  <span className="text-success font-medium">
+                  <ArrowUp className="h-4 w-4 text-green-600" />
+                  <span className="text-green-600 font-medium">
                     +{delta.toFixed(1)}%
                   </span>
                 </>
               ) : delta < 0 ? (
                 <>
-                  <ArrowDown className="h-4 w-4 text-destructive" />
-                  <span className="text-destructive font-medium">
+                  <ArrowDown className="h-4 w-4 text-red-600" />
+                  <span className="text-red-600 font-medium">
                     {delta.toFixed(1)}%
                   </span>
                 </>
