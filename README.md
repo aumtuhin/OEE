@@ -13,7 +13,11 @@ A React/TypeScript dashboard for visualizing OEE (Overall Equipment Effectivenes
 
 ```sh
 # Clone the repository
-git clone git@github.com:aumtuhin/OEE.git
+git clone git@github.com:aumtuhin/OEE.git 
+
+#or
+
+git clone https://github.com/aumtuhin/OEE.git
 
 # Navigate to the project directory
 cd OEE
