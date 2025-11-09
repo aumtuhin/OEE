@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { Factory } from "lucide-react";
 import productionData from "@/data/production-data.json";
 import type { ProductionData } from "@/types/production";
 import {
@@ -7,14 +6,17 @@ import {
   getOEEStatus,
   getTopDowntimeReasons,
 } from "@/lib/oeeCalculations";
+
+//components
+import { Button } from "@/components/ui/button";
+import { Download, Factory} from "lucide-react";
 import { exportMetrics } from "@/lib/exportMetrics";
 import { OEEMetricCard } from "@/components/OEEMetricCard";
 import { DowntimeAnalysis } from "@/components/DowntimeAnalysis";
 import { ShiftSelector } from "@/components/ShiftSelector";
 import { DowntimeChart } from "@/components/DowntimeChart";
 import { ProductionSummary } from "@/components/ProductionSummary";
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { ShiftTimeline } from "@/components/ShiftTimeline";
 
 const Dashboard = () => {
   const data = productionData as ProductionData;
@@ -119,6 +121,23 @@ const Dashboard = () => {
 
           {/* Production Summary */}
           <ProductionSummary shifts={shifts} downtimeEvents={downtimeEvents} />
+
+          {/* Shift Timelines */}
+          {selectedShift === "all" ? (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {data.shifts.map((shift) => (
+                <ShiftTimeline
+                  key={shift.id}
+                  shift={shift}
+                  downtimeEvents={data.downtimeEvents.filter((e) => e.shiftId === shift.id)}
+                />
+              ))}
+            </div>
+          ) : (
+            shifts.length > 0 && (
+              <ShiftTimeline shift={shifts[0]} downtimeEvents={downtimeEvents} />
+            )
+          )}
 
           {/* Downtime Analysis */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
