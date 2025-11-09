@@ -54,7 +54,7 @@ export function DowntimeChart({ downtimeEvents }: DowntimeChartProps) {
               }}
             />
             <Legend />
-            <Bar dataKey="planned" stackId="a" fill="hsl(var(--chart-2))" name="Planned" />
+            <Bar dataKey="planned" stackId="a" fill="hsl(var(--chart-1))" name="Planned" />
             <Bar dataKey="unplanned" stackId="a" fill="hsl(var(--chart-4))" name="Unplanned" />
           </BarChart>
         </ResponsiveContainer>
